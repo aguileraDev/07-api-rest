@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderServiceImpl implements IOrderService {
 
@@ -24,5 +26,10 @@ public class OrderServiceImpl implements IOrderService {
         }catch (DataIntegrityViolationException e){
             throw new RuntimeException("Ocurrio un error al intentar guardar la orden");
         }
+    }
+
+    @Override
+    public List<Orders> findAllOrders() {
+        return ordersRepository.findAll();
     }
 }
