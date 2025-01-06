@@ -3,6 +3,7 @@ package com.training.restaurant.services;
 import com.training.restaurant.models.Orders;
 import com.training.restaurant.repositories.OrdersRepository;
 import com.training.restaurant.services.interfaces.IOrderService;
+import com.training.restaurant.utils.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,10 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public List<Orders> findAllOrders() {
         return ordersRepository.findAll();
+    }
+
+    @Override
+    public Orders findOrderById(Long id) {
+        return ordersRepository.findById(id).orElseThrow(() -> new NotFoundException("No se encontro la orden con id " + id));
     }
 }

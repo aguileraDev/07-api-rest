@@ -49,4 +49,9 @@ public class OrdersController {
     public ResponseEntity<List<OrdersDto>> findAllOrders(){
         return ResponseEntity.ok(orderService.findAllOrders().stream().map(OrdersConverter::toOrdersDto).toList());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OrdersDto> findOrderById(@PathVariable Long id){
+        return ResponseEntity.ok(OrdersConverter.toOrdersDto(orderService.findOrderById(id)));
+    }
 }
