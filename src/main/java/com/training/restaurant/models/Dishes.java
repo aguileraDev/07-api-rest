@@ -1,5 +1,6 @@
 package com.training.restaurant.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,8 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,8 +42,8 @@ public class Dishes implements Serializable{
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    @ManyToMany(mappedBy = "dishes")
-    private List<Orders> orders = new ArrayList<>();
+    @OneToMany(mappedBy = "dish", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderDish> orderDishes = new ArrayList<>();
 
     public Dishes(String name, String type, Double price) {
         this.name = name;

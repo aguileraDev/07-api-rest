@@ -1,5 +1,6 @@
 package com.training.restaurant.services;
 
+import com.training.restaurant.models.Customer;
 import com.training.restaurant.models.Orders;
 import com.training.restaurant.repositories.OrdersRepository;
 import com.training.restaurant.services.interfaces.IOrderService;
@@ -42,5 +43,10 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public void deleteOrder(Long id){
         ordersRepository.delete(findOrderById(id));
+    }
+
+    @Override
+    public Long findCountOrdersByCustomer(Customer customer) {
+        return ordersRepository.countByCustomer(customer);
     }
 }

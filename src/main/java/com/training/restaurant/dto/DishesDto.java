@@ -1,6 +1,7 @@
 package com.training.restaurant.dto;
 
 import com.training.restaurant.models.Dishes;
+import com.training.restaurant.models.OrderDish;
 
 public record DishesDto(
         Long id,
@@ -14,5 +15,13 @@ public record DishesDto(
                 dishes.getName(),
                 dishes.getType().typeToString(),
                 dishes.getPrice());
+    }
+
+    public DishesDto(OrderDish orderDish) {
+        this(
+                orderDish.getDish().getId(),
+                orderDish.getDish().getName(),
+                orderDish.getDish().getType().typeToString(),
+                orderDish.getDish().getPrice());
     }
 }

@@ -45,11 +45,28 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
+    public Customer saveCustomer(Customer customer) {
+        try{
+            return customerRepository.save(customer);
+        }catch (DataIntegrityViolationException e){
+            throw new BadRequestException("Ocurrio un error al intentar guardar el cliente");
+        }
+    }
+
+    @Override
     public Customer findCustomerById(Long id) {
         return customerRepository.findByIdAndIsActiveTrue(id)
                 .orElseThrow(() -> new NotFoundException("No se encontro el cliente con id " + id));
     }
 
+    @Override
+    public void removeCustomer(Long id) {
+        customerRepository.findById(id).map(c -> {
+                    c.setIsActive(false);
+                    return customerRepository.save(c);
+                }).orElseThrow(() -> new NotFoundException("No se encontro el cliente con id " + id));
+
+    }
     @Override
     public void updateCustomer(Long id, UpdateCustomerDto updateCustomerDto) {
         Customer customer = customerRepository.findById(id)
@@ -69,14 +86,6 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
 
-    @Override
-    public void removeCustomer(Long id) {
-        customerRepository.findById(id).map(c -> {
-                    c.setIsActive(false);
-                    return customerRepository.save(c);
-                }).orElseThrow(() -> new NotFoundException("No se encontro el cliente con id " + id));
-
-    }
 
     private void updateNameIfPresent(Customer customer, String name) {
         if (name != null) {

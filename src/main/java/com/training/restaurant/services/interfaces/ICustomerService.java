@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface ICustomerService {
     Customer createCustomer(CreateCustomerDto createCustomerDto);
+    Customer saveCustomer(Customer customer);
     List<Customer> findAllCustomers();
     Customer findCustomerById(Long id);
     void updateCustomer(Long id, UpdateCustomerDto updateCustomerDto);
