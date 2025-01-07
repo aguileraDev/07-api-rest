@@ -1,7 +1,7 @@
 package com.training.restaurant.services.interfaces;
 
-import com.training.restaurant.dto.CreateDishDto;
-import com.training.restaurant.dto.CreateMenuDto;
+import com.training.restaurant.dto.dishes.CreateDishDto;
+import com.training.restaurant.dto.menus.CreateMenuDto;
 import com.training.restaurant.models.Dishes;
 import com.training.restaurant.models.Menu;
 

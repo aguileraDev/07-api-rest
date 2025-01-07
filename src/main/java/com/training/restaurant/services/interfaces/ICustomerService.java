@@ -1,7 +1,7 @@
 package com.training.restaurant.services.interfaces;
 
-import com.training.restaurant.dto.CreateCustomerDto;
-import com.training.restaurant.dto.UpdateCustomerDto;
+import com.training.restaurant.dto.customer.CreateCustomerDto;
+import com.training.restaurant.dto.customer.UpdateCustomerDto;
 import com.training.restaurant.models.Customer;
 
 import java.util.List;

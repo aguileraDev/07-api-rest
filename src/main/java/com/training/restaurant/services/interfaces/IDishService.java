@@ -1,6 +1,6 @@
 package com.training.restaurant.services.interfaces;
 
-import com.training.restaurant.dto.UpdateDishDto;
+import com.training.restaurant.dto.dishes.UpdateDishDto;
 import com.training.restaurant.models.Dishes;
 
 import java.util.List;

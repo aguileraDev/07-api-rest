@@ -1,7 +1,7 @@
-package com.training.restaurant.services;
+package com.training.restaurant.services.customer;
 
-import com.training.restaurant.dto.CreateCustomerDto;
-import com.training.restaurant.dto.UpdateCustomerDto;
+import com.training.restaurant.dto.customer.CreateCustomerDto;
+import com.training.restaurant.dto.customer.UpdateCustomerDto;
 import com.training.restaurant.models.Customer;
 import com.training.restaurant.models.CustomerType;
 import com.training.restaurant.repositories.CustomerRepository;

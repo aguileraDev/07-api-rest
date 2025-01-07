@@ -1,4 +1,4 @@
-package com.training.restaurant.dto;
+package com.training.restaurant.dto.dishes;
 
 import com.training.restaurant.models.Dishes;
 import com.training.restaurant.models.OrderDish;

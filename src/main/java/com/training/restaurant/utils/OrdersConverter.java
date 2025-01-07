@@ -1,6 +1,6 @@
 package com.training.restaurant.utils;
 
-import com.training.restaurant.dto.OrdersDto;
+import com.training.restaurant.dto.orders.OrdersDto;
 import com.training.restaurant.models.Customer;
 import com.training.restaurant.models.Orders;
 

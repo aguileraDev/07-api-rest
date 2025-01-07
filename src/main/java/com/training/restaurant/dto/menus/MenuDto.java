@@ -1,5 +1,6 @@
-package com.training.restaurant.dto;
+package com.training.restaurant.dto.menus;
 
+import com.training.restaurant.dto.dishes.DishesDto;
 import com.training.restaurant.models.Menu;
 
 import java.util.List;

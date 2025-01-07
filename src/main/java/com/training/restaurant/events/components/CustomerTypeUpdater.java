@@ -5,7 +5,7 @@ import com.training.restaurant.models.Customer;
 import com.training.restaurant.models.CustomerType;
 import com.training.restaurant.models.Orders;
 import com.training.restaurant.repositories.CustomerRepository;
-import com.training.restaurant.services.OrderServiceImpl;
+import com.training.restaurant.services.orders.OrderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;

@@ -1,4 +1,4 @@
-package com.training.restaurant.dto;
+package com.training.restaurant.dto.menus;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 

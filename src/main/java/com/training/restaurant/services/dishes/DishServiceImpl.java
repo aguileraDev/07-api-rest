@@ -1,6 +1,6 @@
-package com.training.restaurant.services;
+package com.training.restaurant.services.dishes;
 
-import com.training.restaurant.dto.UpdateDishDto;
+import com.training.restaurant.dto.dishes.UpdateDishDto;
 import com.training.restaurant.models.DishType;
 import com.training.restaurant.models.Dishes;
 import com.training.restaurant.repositories.DishesRepository;

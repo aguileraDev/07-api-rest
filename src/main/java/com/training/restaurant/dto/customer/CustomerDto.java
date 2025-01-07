@@ -1,4 +1,4 @@
-package com.training.restaurant.dto;
+package com.training.restaurant.dto.customer;
 
 import com.training.restaurant.models.Customer;
 

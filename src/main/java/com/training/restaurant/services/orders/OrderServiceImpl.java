@@ -1,7 +1,8 @@
-package com.training.restaurant.services;
+package com.training.restaurant.services.orders;
 
 import com.training.restaurant.models.Customer;
 import com.training.restaurant.events.NewOrderEvent;
+import com.training.restaurant.models.Dishes;
 import com.training.restaurant.models.Orders;
 import com.training.restaurant.repositories.OrdersRepository;
 import com.training.restaurant.services.interfaces.IOrderService;
@@ -54,5 +55,10 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public Long findCountOrdersByCustomer(Customer customer) {
         return ordersRepository.countByCustomer(customer);
+    }
+
+    @Override
+    public Long countDishPurchases(Dishes dish) {
+        return ordersRepository.countDishPurchases(dish.getId());
     }
 }

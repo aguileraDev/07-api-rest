@@ -1,4 +1,4 @@
-package com.training.restaurant.dto;
+package com.training.restaurant.dto.orders;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;

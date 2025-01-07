@@ -1,10 +1,10 @@
 package com.training.restaurant.controllers;
 
-import com.training.restaurant.dto.CreateDishDto;
-import com.training.restaurant.dto.DishesDto;
-import com.training.restaurant.dto.UpdateDishDto;
-import com.training.restaurant.services.DishServiceImpl;
-import com.training.restaurant.services.MenuDishServiceImpl;
+import com.training.restaurant.dto.dishes.CreateDishDto;
+import com.training.restaurant.dto.dishes.DishesDto;
+import com.training.restaurant.dto.dishes.UpdateDishDto;
+import com.training.restaurant.services.dishes.DishServiceImpl;
+import com.training.restaurant.services.menus.MenuDishServiceImpl;
 import com.training.restaurant.utils.DishesConverter;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;

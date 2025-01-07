@@ -1,7 +1,7 @@
 package com.training.restaurant.utils;
 
-import com.training.restaurant.dto.CustomerDto;
-import com.training.restaurant.dto.CreateCustomerDto;
+import com.training.restaurant.dto.customer.CustomerDto;
+import com.training.restaurant.dto.customer.CreateCustomerDto;
 import com.training.restaurant.models.Customer;
 import com.training.restaurant.models.CustomerType;
 

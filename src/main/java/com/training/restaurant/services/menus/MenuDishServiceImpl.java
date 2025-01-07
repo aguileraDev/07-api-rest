@@ -1,9 +1,10 @@
-package com.training.restaurant.services;
+package com.training.restaurant.services.menus;
 
-import com.training.restaurant.dto.CreateDishDto;
-import com.training.restaurant.dto.CreateMenuDto;
+import com.training.restaurant.dto.dishes.CreateDishDto;
+import com.training.restaurant.dto.menus.CreateMenuDto;
 import com.training.restaurant.models.Dishes;
 import com.training.restaurant.models.Menu;
+import com.training.restaurant.services.dishes.DishServiceImpl;
 import com.training.restaurant.services.interfaces.IMenuDishService;
 import com.training.restaurant.utils.DishesConverter;
 import org.springframework.stereotype.Service;

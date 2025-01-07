@@ -1,5 +1,6 @@
-package com.training.restaurant.dto;
+package com.training.restaurant.dto.orders;
 
+import com.training.restaurant.dto.dishes.DishWithQuantityDto;
 import com.training.restaurant.models.OrderDish;
 import com.training.restaurant.models.Orders;
 
