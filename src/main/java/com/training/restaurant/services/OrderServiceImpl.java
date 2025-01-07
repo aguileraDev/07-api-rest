@@ -1,11 +1,13 @@
 package com.training.restaurant.services;
 
 import com.training.restaurant.models.Customer;
+import com.training.restaurant.events.NewOrderEvent;
 import com.training.restaurant.models.Orders;
 import com.training.restaurant.repositories.OrdersRepository;
 import com.training.restaurant.services.interfaces.IOrderService;
 import com.training.restaurant.utils.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +17,20 @@ import java.util.List;
 public class OrderServiceImpl implements IOrderService {
 
     private final OrdersRepository ordersRepository;
+    private final ApplicationEventPublisher eventPublisher;
 
     @Autowired
-    public OrderServiceImpl(OrdersRepository ordersRepository) {
+    public OrderServiceImpl(OrdersRepository ordersRepository, ApplicationEventPublisher eventPublisher) {
         this.ordersRepository = ordersRepository;
+        this.eventPublisher = eventPublisher;
     }
 
     @Override
     public Orders createOrder(Orders orders) {
         try{
-            return ordersRepository.save(orders);
+            Orders savedOrder = ordersRepository.save(orders);
+            eventPublisher.publishEvent(new NewOrderEvent(this,savedOrder));
+            return savedOrder;
         }catch (DataIntegrityViolationException e){
             throw new RuntimeException("Ocurrio un error al intentar guardar la orden");
         }
