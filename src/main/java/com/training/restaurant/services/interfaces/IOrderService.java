@@ -8,5 +8,6 @@ public interface IOrderService {
     Orders createOrder(Orders orders);
     List<Orders> findAllOrders();
     Orders findOrderById(Long id);
+    void deleteOrder(Long id);
 
 }

@@ -38,4 +38,9 @@ public class OrderServiceImpl implements IOrderService {
     public Orders findOrderById(Long id) {
         return ordersRepository.findById(id).orElseThrow(() -> new NotFoundException("No se encontro la orden con id " + id));
     }
+
+    @Override
+    public void deleteOrder(Long id){
+        ordersRepository.delete(findOrderById(id));
+    }
 }

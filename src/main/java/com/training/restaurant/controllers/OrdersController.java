@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,5 +54,11 @@ public class OrdersController {
     @GetMapping("/{id}")
     public ResponseEntity<OrdersDto> findOrderById(@PathVariable Long id){
         return ResponseEntity.ok(OrdersConverter.toOrdersDto(orderService.findOrderById(id)));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable Long id){
+        orderService.deleteOrder(id);
+        return ResponseEntity.noContent().build();
     }
 }
