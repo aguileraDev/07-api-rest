@@ -1,6 +1,6 @@
-package com.training.restaurant.services;
+package com.training.restaurant.services.dishes;
 
-import com.training.restaurant.dto.UpdateDishDto;
+import com.training.restaurant.dto.dishes.UpdateDishDto;
 import com.training.restaurant.models.DishType;
 import com.training.restaurant.models.Dishes;
 import com.training.restaurant.repositories.DishesRepository;
@@ -12,7 +12,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DishServiceImpl implements IDishService {
@@ -64,11 +63,8 @@ public class DishServiceImpl implements IDishService {
     }
 
     @Override
-    public List<Dishes> findAllDishesByOrders(List<String> dishes){
-        return dishes.stream()
-                .map(d -> dishesRepository.findByName(d.toLowerCase())
-                        .orElseThrow(() -> new BadRequestException("El plato no existe: " + d)))
-                .collect(Collectors.toList());
+    public Dishes findDishByName(String name){
+        return dishesRepository.findByName(name).orElseThrow(() -> new NotFoundException("El plato no existe"));
     }
 
     private void updateDishFields(Dishes dishes, UpdateDishDto updateDishDto) {

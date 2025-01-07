@@ -1,7 +1,7 @@
 package com.training.restaurant.utils;
 
-import com.training.restaurant.dto.CreateMenuDto;
-import com.training.restaurant.dto.MenuDto;
+import com.training.restaurant.dto.menus.CreateMenuDto;
+import com.training.restaurant.dto.menus.MenuDto;
 import com.training.restaurant.models.Menu;
 
 import java.time.ZoneId;

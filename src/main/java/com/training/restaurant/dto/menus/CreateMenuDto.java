@@ -1,6 +1,7 @@
-package com.training.restaurant.dto;
+package com.training.restaurant.dto.menus;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.training.restaurant.dto.dishes.CreateDishDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 

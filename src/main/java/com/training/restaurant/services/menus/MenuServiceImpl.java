@@ -1,8 +1,8 @@
-package com.training.restaurant.services;
+package com.training.restaurant.services.menus;
 
-import com.training.restaurant.dto.CreateMenuDto;
-import com.training.restaurant.dto.MenuDto;
-import com.training.restaurant.dto.UpdateMenuDto;
+import com.training.restaurant.dto.menus.CreateMenuDto;
+import com.training.restaurant.dto.menus.MenuDto;
+import com.training.restaurant.dto.menus.UpdateMenuDto;
 import com.training.restaurant.models.Menu;
 import com.training.restaurant.repositories.MenuRepository;
 import com.training.restaurant.services.interfaces.IMenuService;

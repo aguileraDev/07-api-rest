@@ -1,9 +1,9 @@
 package com.training.restaurant.controllers;
 
-import com.training.restaurant.dto.CustomerDto;
-import com.training.restaurant.dto.CreateCustomerDto;
-import com.training.restaurant.dto.UpdateCustomerDto;
-import com.training.restaurant.services.CustomerServiceImpl;
+import com.training.restaurant.dto.customer.CustomerDto;
+import com.training.restaurant.dto.customer.CreateCustomerDto;
+import com.training.restaurant.dto.customer.UpdateCustomerDto;
+import com.training.restaurant.services.customer.CustomerServiceImpl;
 import com.training.restaurant.utils.CustomerConverter;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
