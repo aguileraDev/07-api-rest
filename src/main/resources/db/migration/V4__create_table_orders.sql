@@ -1,6 +1,8 @@
 CREATE TABLE IF NOT EXISTS `restaurant`.`ORDERS` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `created_at` TIMESTAMP NULL,
+  `total` DECIMAL(10,2) NOT NULL,
+  `discount` TINYINT NOT NULL,
+  `created_at` TIMESTAMP NOT NULL,
   `customer_id` INT NOT NULL,
   PRIMARY KEY (`id`, `customer_id`),
   INDEX `fk_ORDERS_customer_idx` (`customer_id` ASC) VISIBLE,

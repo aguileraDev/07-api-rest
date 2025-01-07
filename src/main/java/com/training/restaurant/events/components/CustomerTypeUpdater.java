@@ -1,9 +1,8 @@
 package com.training.restaurant.events.components;
 
+import com.training.restaurant.events.NewOrderEvent;
 import com.training.restaurant.models.Customer;
 import com.training.restaurant.models.CustomerType;
-import com.training.restaurant.events.NewOrderEvent;
-import com.training.restaurant.models.Dishes;
 import com.training.restaurant.models.Orders;
 import com.training.restaurant.repositories.CustomerRepository;
 import com.training.restaurant.services.OrderServiceImpl;
@@ -31,16 +30,35 @@ public class CustomerTypeUpdater {
         Orders order = event.getOrder();
         Customer customer = order.getCustomer();
         Long countOrders = orderService.findCountOrdersByCustomer(customer);
-        log.info("Customer " + customer.getName() + " has " + countOrders + " orders.");
-
-        if (!(countOrders < 10)) {
+        log.info("Customer " + customer.getName() + " has " + countOrders + " orders");
+        if (toCustomerUpdate(countOrders, customer)) {
             customer.setType(CustomerType.FREQUENT);
-            order.getOrderDishes().forEach(orderDish -> {
-                Dishes dish = orderDish.getDish();
-                double discountedPrice = dish.getPrice() * 0.9762;
-                dish.setPrice(discountedPrice);
-            });
         }
+        order.setTotal(calculateTotalWithDiscount(order, customer.getType() == CustomerType.FREQUENT));
         customerRepository.save(customer);
     }
+
+
+    private Boolean toCustomerUpdate(Long countOrders, Customer customer) {
+        return !(countOrders < 10) && customer.getType() != CustomerType.FREQUENT;
+    }
+
+    private Double calculateTotalWithDiscount(Orders order, Boolean applyDiscount) {
+        Double total = order.getOrderDishes().stream()
+                .mapToDouble(orderDish -> {
+                    Double price = orderDish.getDish().getPrice();
+                    return price * orderDish.getQuantity();
+                }).sum();
+
+        if (applyDiscount) {
+            total *= 0.9762;
+            order.setDiscount(true);
+
+        }
+        return total;
+    }
+
+
 }
+
+

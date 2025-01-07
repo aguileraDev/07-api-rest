@@ -5,6 +5,7 @@ import com.training.restaurant.models.Orders;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public record OrdersDto(
         Long id,
@@ -18,9 +19,9 @@ public record OrdersDto(
         this(
                 orders.getId(),
                 orders.getCustomer().getName(),
-                orders.getOrderDishes().stream().map(DishWithQuantityDto::new).toList(),
+                orders.getOrderDishes().stream().map(DishWithQuantityDto::new).collect(Collectors.toList()),
                 orders.getOrderDishes().stream().mapToInt(OrderDish::getQuantity).sum(),
-                orders.getOrderDishes().stream().mapToDouble(o -> o.getDish().getPrice() * o.getQuantity()).sum(),
+                orders.getTotal(),
                 orders.getCreatedAt()
         );
     }
