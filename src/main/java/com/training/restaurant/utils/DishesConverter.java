@@ -30,4 +30,8 @@ public class DishesConverter {
     public static List<DishesDto> toDishesDtoList(List<Dishes> dishes){
         return dishes.stream().map(DishesConverter::toDishesDto).toList();
     }
+
+    public static List<Dishes> toDishesList(List<CreateDishDto> dishes){
+        return dishes.stream().map(DishesConverter::toCreateDish).toList();
+    }
 }
