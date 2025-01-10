@@ -135,4 +135,50 @@ class MenuServiceImplTest {
 
     }
 
+    @Test
+    @DisplayName("Should update menu fields when both name and schedule are provided")
+    void updateMenuFields_ShouldUpdateAllFields() {
+        menuService.updateMenuFields(menu, updateMenuDto);
+
+        assertEquals(updateMenuDto.name(), menu.getName());
+        assertEquals(updateMenuDto.schedule(), menu.getSchedule());
+    }
+
+    @Test
+    @DisplayName("Should update menu name when a new name is provided")
+    void updateMenuNameIfPresent_ShouldUpdateName() {
+        String newName = "Hamburguesas dto";
+
+        menuService.updateMenuNameIfPresent(menu, newName);
+
+        assertEquals(newName, menu.getName());
+    }
+
+    @Test
+    @DisplayName("Should not update menu name when name is null")
+    void updateMenuNameIfPresent_ShouldNotUpdateNameWhenNull() {
+        menuService.updateMenuNameIfPresent(menu, null);
+
+        assertEquals("Pizza locura", menu.getName());
+    }
+
+    @Test
+    @DisplayName("Should update menu schedule when a new schedule is provided")
+    void updateMenuScheduleIfPresent_ShouldUpdateSchedule() {
+        String newSchedule = "thursday";
+
+        menuService.updateMenuScheduleIfPresent(menu, newSchedule);
+
+        assertEquals(newSchedule, menu.getSchedule());
+    }
+
+    @Test
+    @DisplayName("Should not update menu schedule when schedule is null")
+    void updateMenuScheduleIfPresent_ShouldNotUpdateScheduleWhenNull() {
+        menuService.updateMenuScheduleIfPresent(menu, null);
+
+        assertEquals("friday", menu.getSchedule());
+    }
+
+
 }

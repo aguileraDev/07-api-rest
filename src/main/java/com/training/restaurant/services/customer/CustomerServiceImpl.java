@@ -76,7 +76,7 @@ public class CustomerServiceImpl implements ICustomerService {
         customerRepository.save(customer);
     }
 
-    private void updateCustomerFields(Customer customer, UpdateCustomerDto updateCustomerDto) {
+    void updateCustomerFields(Customer customer, UpdateCustomerDto updateCustomerDto) {
         updateNameIfPresent(customer, updateCustomerDto.name());
         updateEmailIfPresent(customer, updateCustomerDto.email());
         updateTypeIfPresent(customer, updateCustomerDto.type());
@@ -87,19 +87,19 @@ public class CustomerServiceImpl implements ICustomerService {
 
 
 
-    private void updateNameIfPresent(Customer customer, String name) {
+    void updateNameIfPresent(Customer customer, String name) {
         if (name != null) {
             customer.setName(name);
         }
     }
 
-    private void updateEmailIfPresent(Customer customer, String email) {
+    void updateEmailIfPresent(Customer customer, String email) {
         if (email != null) {
             customer.setEmail(email);
         }
     }
 
-    private void updateTypeIfPresent(Customer customer, String type) {
+    void updateTypeIfPresent(Customer customer, String type) {
         if (type != null) {
             customer.setType(CustomerType.fromString(type));
         }
@@ -111,13 +111,13 @@ public class CustomerServiceImpl implements ICustomerService {
         }
     }
 
-    private void updatePhoneIfPresent(Customer customer, String phone) {
+    void updatePhoneIfPresent(Customer customer, String phone) {
         if (phone != null) {
             customer.setPhone(phone);
         }
     }
 
-    private void updateAddressIfPresent(Customer customer, String address) {
+    void updateAddressIfPresent(Customer customer, String address) {
         if (address != null) {
             customer.setAddress(address);
         }

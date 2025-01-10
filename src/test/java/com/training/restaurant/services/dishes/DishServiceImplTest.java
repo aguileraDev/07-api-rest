@@ -141,4 +141,69 @@ class DishServiceImplTest {
         assertEquals(dish.getPrice(), result.getPrice());
         verify(dishesRepository).findByName(anyString());
     }
+
+    @Test
+    @DisplayName("Should update all dish fields when all fields are provided")
+    void updateDishFields_ShouldUpdateAllFields() {
+        dishService.updateDishFields(dish, updateDishDto);
+
+        assertEquals(updateDishDto.name(), dish.getName());
+        assertEquals(DishType.fromString(updateDishDto.type()), dish.getType());
+        assertEquals(updateDishDto.price(), dish.getPrice());
+    }
+
+    @Test
+    @DisplayName("Should update dish name when name is provided")
+    void updateNameIfPresent_ShouldUpdateName() {
+        String newName = "Pizza con pepperoni";
+
+        dishService.updateNameIfPresent(dish, newName);
+
+        assertEquals(newName, dish.getName());
+    }
+
+    @Test
+    @DisplayName("Should not update dish name when name is null")
+    void updateNameIfPresent_ShouldNotUpdateNameWhenNull() {
+        dishService.updateNameIfPresent(dish, null);
+
+        assertEquals(createDishDto.name(), dish.getName());
+    }
+
+    @Test
+    @DisplayName("Should update dish type when type is provided")
+    void updateTypeIfPresent_ShouldUpdateType() {
+        String newType = DishType.POPULAR.typeToString();
+
+        dishService.updateTypeIfPresent(dish, newType);
+
+        assertEquals(DishType.fromString(newType), dish.getType());
+    }
+
+    @Test
+    @DisplayName("Should not update dish type when type is null")
+    void updateTypeIfPresent_ShouldNotUpdateTypeWhenNull() {
+        dishService.updateTypeIfPresent(dish, null);
+
+        assertEquals(DishType.COMMON, dish.getType());
+    }
+
+    @Test
+    @DisplayName("Should update dish price when price is provided")
+    void updatePriceIfPresent_ShouldUpdatePrice() {
+        Double newPrice = 35.0;
+
+        dishService.updatePriceIfPresent(dish, newPrice);
+
+        assertEquals(newPrice, dish.getPrice());
+    }
+
+    @Test
+    @DisplayName("Should not update dish price when price is null")
+    void updatePriceIfPresent_ShouldNotUpdatePriceWhenNull() {
+        dishService.updatePriceIfPresent(dish, null);
+
+        assertEquals(createDishDto.price(), dish.getPrice());
+    }
+
 }

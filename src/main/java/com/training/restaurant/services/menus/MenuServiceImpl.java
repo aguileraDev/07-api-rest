@@ -55,18 +55,18 @@ public class MenuServiceImpl implements IMenuService {
         return menuRepository.save(menu);
     }
 
-    private void updateMenuFields(Menu menu, UpdateMenuDto updateMenuDto){
+    void updateMenuFields(Menu menu, UpdateMenuDto updateMenuDto){
         updateMenuNameIfPresent(menu, updateMenuDto.name());
         updateMenuScheduleIfPresent(menu, updateMenuDto.schedule());
     }
 
-    private void updateMenuNameIfPresent(Menu menu, String name){
+    void updateMenuNameIfPresent(Menu menu, String name){
         if(name != null){
             menu.setName(name);
         }
     }
 
-    private void updateMenuScheduleIfPresent(Menu menu, String schedule){
+    void updateMenuScheduleIfPresent(Menu menu, String schedule){
         if(schedule != null){
             menu.setSchedule(schedule);
         }

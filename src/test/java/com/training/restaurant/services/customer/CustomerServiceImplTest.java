@@ -3,6 +3,7 @@ package com.training.restaurant.services.customer;
 import com.training.restaurant.dto.customer.CreateCustomerDto;
 import com.training.restaurant.dto.customer.UpdateCustomerDto;
 import com.training.restaurant.models.Customer;
+import com.training.restaurant.models.CustomerType;
 import com.training.restaurant.repositories.CustomerRepository;
 import com.training.restaurant.utils.CustomerConverter;
 import org.junit.jupiter.api.BeforeEach;
@@ -134,4 +135,92 @@ class CustomerServiceImplTest {
         verify(customerRepository).findById(anyLong());
         verify(customerRepository).save(any(Customer.class));
     }
+
+    @Test
+    @DisplayName("Should update all customer fields when all fields are provided")
+    void updateCustomerFields_ShouldUpdateAllFields() {
+        customerService.updateCustomerFields(customer, updateCustomerDto);
+
+        assertEquals(updateCustomerDto.name(), customer.getName());
+        assertEquals(updateCustomerDto.email(), customer.getEmail());
+        assertEquals(updateCustomerDto.type(), customer.getType().typeToString());
+        assertEquals(updateCustomerDto.age(), customer.getAge());
+        assertEquals(updateCustomerDto.phone(), customer.getPhone());
+        assertEquals(updateCustomerDto.address(), customer.getAddress());
+    }
+
+    @Test
+    @DisplayName("Should update customer name when name is provided")
+    void updateNameIfPresent_ShouldUpdateName() {
+        String newName = "Laura García";
+
+        customerService.updateNameIfPresent(customer, newName);
+
+        assertEquals(newName, customer.getName());
+    }
+
+    @Test
+    @DisplayName("Should not update customer name when name is null")
+    void updateNameIfPresent_ShouldNotUpdateNameWhenNull() {
+        customerService.updateNameIfPresent(customer, null);
+
+        assertEquals(createCustomerDto.name(), customer.getName());
+    }
+
+    @Test
+    @DisplayName("Should update customer email when email is provided")
+    void updateEmailIfPresent_ShouldUpdateEmail() {
+        String newEmail = "lauragarcia@example.com";
+
+        customerService.updateEmailIfPresent(customer, newEmail);
+
+        assertEquals(newEmail, customer.getEmail());
+    }
+
+    @Test
+    @DisplayName("Should not update customer email when email is null")
+    void updateEmailIfPresent_ShouldNotUpdateEmailWhenNull() {
+        customerService.updateEmailIfPresent(customer, null);
+
+        assertEquals(createCustomerDto.email(), customer.getEmail());
+    }
+
+    @Test
+    @DisplayName("Should update customer type when type is provided")
+    void updateTypeIfPresent_ShouldUpdateType() {
+        String newType = "frecuente";
+
+        customerService.updateTypeIfPresent(customer, newType);
+
+        assertEquals(CustomerType.fromString(newType), customer.getType());
+    }
+
+    @Test
+    @DisplayName("Should update customer phone when phone is provided")
+    void updatePhoneIfPresent_ShouldUpdatePhone() {
+        String newPhone = "9876543210";
+
+        customerService.updatePhoneIfPresent(customer, newPhone);
+
+        assertEquals(newPhone, customer.getPhone());
+    }
+
+    @Test
+    @DisplayName("Should update customer address when address is provided")
+    void updateAddressIfPresent_ShouldUpdateAddress() {
+        String newAddress = "Av. Bellavista";
+
+        customerService.updateAddressIfPresent(customer, newAddress);
+
+        assertEquals(newAddress, customer.getAddress());
+    }
+
+    @Test
+    @DisplayName("Should not update customer address when address is null")
+    void updateAddressIfPresent_ShouldNotUpdateAddressWhenNull() {
+        customerService.updateAddressIfPresent(customer, null);
+
+        assertEquals(createCustomerDto.address(), customer.getAddress());
+    }
+
 }

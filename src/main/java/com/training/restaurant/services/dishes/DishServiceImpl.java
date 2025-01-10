@@ -67,25 +67,25 @@ public class DishServiceImpl implements IDishService {
         return dishesRepository.findByName(name).orElseThrow(() -> new NotFoundException("El plato no existe"));
     }
 
-    private void updateDishFields(Dishes dishes, UpdateDishDto updateDishDto) {
+    void updateDishFields(Dishes dishes, UpdateDishDto updateDishDto) {
         updateNameIfPresent(dishes, updateDishDto.name());
         updateTypeIfPresent(dishes, updateDishDto.type());
         updatePriceIfPresent(dishes, updateDishDto.price());
     }
 
-    private void updateNameIfPresent(Dishes dishes, String name) {
+    void updateNameIfPresent(Dishes dishes, String name) {
         if (name != null) {
             dishes.setName(name);
         }
     }
 
-    private void updateTypeIfPresent(Dishes dishes, String type) {
+    void updateTypeIfPresent(Dishes dishes, String type) {
         if (type != null) {
             dishes.setType(DishType.fromString(type));
         }
     }
 
-    private void updatePriceIfPresent(Dishes dishes, Double price) {
+    void updatePriceIfPresent(Dishes dishes, Double price) {
         if (price != null) {
             dishes.setPrice(price);
         }
