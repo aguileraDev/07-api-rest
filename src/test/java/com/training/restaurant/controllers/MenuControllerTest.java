@@ -120,7 +120,7 @@ class MenuControllerTest {
     @Test
     @DisplayName("Should be able to update a menu")
     void updateMenu() {
-        doNothing().when(menuService).updateMenu(anyLong(), any(UpdateMenuDto.class));
+        when(menuService.updateMenu(anyLong(), any(UpdateMenuDto.class))).thenReturn(menu);
 
         webTestClient
                 .put()

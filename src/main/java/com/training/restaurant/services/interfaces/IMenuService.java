@@ -13,5 +13,5 @@ public interface IMenuService {
     List<MenuDto> findAllMenus();
     Menu findMenuById(Long id);
     void removeMenu(Long id);
-    void updateMenu(Long id, UpdateMenuDto updateMenuDto);
+    Menu updateMenu(Long id, UpdateMenuDto updateMenuDto);
 }

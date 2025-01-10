@@ -49,10 +49,10 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
-    public void updateMenu(Long id, UpdateMenuDto updateMenuDto) {
+    public Menu updateMenu(Long id, UpdateMenuDto updateMenuDto) {
         Menu menu = findMenuById(id);
         updateMenuFields(menu, updateMenuDto);
-        menuRepository.save(menu);
+        return menuRepository.save(menu);
     }
 
     private void updateMenuFields(Menu menu, UpdateMenuDto updateMenuDto){
