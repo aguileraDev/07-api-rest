@@ -16,6 +16,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,7 +35,7 @@ public class Menu implements Serializable {
     private ZonedDateTime createdAt;
 
     @OneToMany(mappedBy = "menu", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Dishes> dishes;
+    private List<Dishes> dishes = new ArrayList<>();
 
     public Menu(String name, String schedule, ZonedDateTime createdAt) {
         this.name = name;
