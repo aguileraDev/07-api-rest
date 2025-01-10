@@ -1,8 +1,8 @@
 package com.training.restaurant.controllers;
 
-import com.training.restaurant.utils.exceptions.BadRequestException;
-import com.training.restaurant.utils.exceptions.ExceptionResponse;
-import com.training.restaurant.utils.exceptions.NotFoundException;
+import com.training.restaurant.config.exceptions.BadRequestException;
+import com.training.restaurant.config.exceptions.ExceptionResponse;
+import com.training.restaurant.config.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

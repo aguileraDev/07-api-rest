@@ -1,4 +1,4 @@
-package com.training.restaurant.utils.exceptions;
+package com.training.restaurant.config.exceptions;
 
 import org.springframework.stereotype.Component;
 

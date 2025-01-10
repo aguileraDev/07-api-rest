@@ -1,4 +1,4 @@
-package com.training.restaurant.utils.exceptions;
+package com.training.restaurant.config.exceptions;
 
 public class BadRequestException extends RuntimeException{
     public BadRequestException(String message){

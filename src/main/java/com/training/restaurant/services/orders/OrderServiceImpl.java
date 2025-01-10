@@ -6,7 +6,7 @@ import com.training.restaurant.models.Dishes;
 import com.training.restaurant.models.Orders;
 import com.training.restaurant.repositories.OrdersRepository;
 import com.training.restaurant.services.interfaces.IOrderService;
-import com.training.restaurant.utils.exceptions.NotFoundException;
+import com.training.restaurant.config.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;

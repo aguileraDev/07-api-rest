@@ -1,8 +1,8 @@
 package com.training.restaurant.controllers;
 
-import com.training.restaurant.utils.exceptions.BadRequestException;
-import com.training.restaurant.utils.exceptions.ExceptionResponse;
-import com.training.restaurant.utils.exceptions.NotFoundException;
+import com.training.restaurant.config.exceptions.BadRequestException;
+import com.training.restaurant.config.exceptions.ExceptionResponse;
+import com.training.restaurant.config.exceptions.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

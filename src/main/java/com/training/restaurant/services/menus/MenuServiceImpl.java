@@ -7,8 +7,8 @@ import com.training.restaurant.models.Menu;
 import com.training.restaurant.repositories.MenuRepository;
 import com.training.restaurant.services.interfaces.IMenuService;
 import com.training.restaurant.utils.MenuConverter;
-import com.training.restaurant.utils.exceptions.BadRequestException;
-import com.training.restaurant.utils.exceptions.NotFoundException;
+import com.training.restaurant.config.exceptions.BadRequestException;
+import com.training.restaurant.config.exceptions.NotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
