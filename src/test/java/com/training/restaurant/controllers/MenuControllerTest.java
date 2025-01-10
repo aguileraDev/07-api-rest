@@ -28,8 +28,6 @@ class MenuControllerTest {
     private MenuDishServiceImpl menuDishService;
     private MenuServiceImpl menuService;
 
-    private MenuController menuController;
-
     private WebTestClient webTestClient;
     private CreateMenuDto createMenuDto;
     private Menu menu;
