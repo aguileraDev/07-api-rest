@@ -10,4 +10,6 @@ public record CreateOrderDto(
         @JsonAlias("order_dishes")
         List<OrderDishDto> dishes
 ) {
+        public CreateOrderDto {
+        }
 }

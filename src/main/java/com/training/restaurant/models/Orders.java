@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,14 @@ public class Orders implements Serializable {
         this.total = 0.00;
         this.discount = false;
         this.customer = customer;
+        this.orderDishes = new ArrayList<>();
+    }
+
+    public Orders(Double total) {
+        this.total = total;
+        this.discount = false;
+        this.createdAt = ZonedDateTime.now(ZoneId.of("America/Caracas"));
+        this.customer = new Customer();
         this.orderDishes = new ArrayList<>();
     }
 }

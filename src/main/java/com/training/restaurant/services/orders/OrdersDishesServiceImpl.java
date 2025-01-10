@@ -37,7 +37,7 @@ public class OrdersDishesServiceImpl implements IOrderDishesService {
 
     }
 
-    private List<OrderDish> associateDishes(CreateOrderDto createOrderDto, Orders order) {
+    public List<OrderDish> associateDishes(CreateOrderDto createOrderDto, Orders order) {
         return createOrderDto.dishes().stream().map(orderDishDto -> {
             Dishes dish = dishService.findDishByName(orderDishDto.name());
             OrderDish orderDish = new OrderDish();
